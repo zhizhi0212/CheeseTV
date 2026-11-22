@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="CheeseTV">
+  <rect width="48" height="48" rx="12" fill="#F6D06F"/>
+  <path d="M33 12a16 16 0 1 0 0 24" fill="none" stroke="#704E2C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M21 17v14l12-7z" fill="#704E2C"/>
+</svg>

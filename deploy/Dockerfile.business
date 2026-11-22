@@ -1,0 +1,18 @@
+ARG MAVEN_IMAGE=docker.m.daocloud.io/library/maven:3.10.0-eclipse-temurin-17
+ARG JAVA_IMAGE=eclipse-temurin:17-jre-jammy
+FROM ${MAVEN_IMAGE} AS build
+WORKDIR /build
+ENV MAVEN_OPTS="-Xmx256m -XX:MaxMetaspaceSize=160m -XX:ActiveProcessorCount=2"
+ARG TEST_JVM_OPTIONS="-Xmx256m -XX:MaxMetaspaceSize=160m -XX:ActiveProcessorCount=2"
+COPY pom.xml ./pom.xml
+COPY src ./src
+RUN --mount=type=cache,target=/root/.m2 mvn -B -ntp "-DargLine=${TEST_JVM_OPTIONS}" package
+
+FROM ${JAVA_IMAGE}
+WORKDIR /opt/cheesetv
+COPY --from=build /build/target/cheesetv-0.0.1-SNAPSHOT.jar ./business.jar
+COPY deploy/site/business-entrypoint.sh ./entrypoint.sh
+RUN sed -i 's/\r$//' entrypoint.sh && chmod 0555 entrypoint.sh
+USER 10001:10001
+EXPOSE 8101 9101
+ENTRYPOINT ["/bin/sh", "/opt/cheesetv/entrypoint.sh"]

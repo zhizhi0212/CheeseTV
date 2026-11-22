@@ -1,0 +1,72 @@
+# Credentials belong in the process environment; see .env.example and README.md.
+spring:
+  application:
+    name: CheeseTV
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${TIANMU_JDBC_URL:jdbc:mysql://127.0.0.1:3306/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${TIANMU_DB_USER:tianmu}
+    password: ${TIANMU_DB_PASSWORD}
+  elasticsearch:
+    uris: ${TIANMU_ES_URL:http://127.0.0.1:9200}
+    username: ${TIANMU_ES_USER:}
+    password: ${TIANMU_ES_PASSWORD:}
+    connection-timeout: 5s
+    socket-timeout: 30s
+  data:
+    redis:
+      database: ${TIANMU_REDIS_DATABASE:0}
+      host: ${TIANMU_REDIS_HOST:127.0.0.1}
+      port: ${TIANMU_REDIS_PORT:6379}
+      timeout: 5000ms
+      password: ${TIANMU_REDIS_PASSWORD:}
+      lettuce:
+        pool:
+          min-idle: 4
+          max-idle: 8
+          max-active: 8
+          max-wait: 5000ms
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+minio:
+  url: ${TIANMU_MINIO_URL:http://127.0.0.1:9000}
+  access-key: ${TIANMU_MINIO_ACCESS_KEY}
+  secret-key: ${TIANMU_MINIO_SECRET_KEY}
+  bucket-name: ${TIANMU_MINIO_BUCKET:tianmu-upload}
+netty:
+  port: ${TIANMU_NETTY_PORT:9101}
+  danmaku-batch:
+    window-ms: ${TIANMU_DANMAKU_BATCH_WINDOW_MS:100}
+    max-items: ${TIANMU_DANMAKU_BATCH_MAX_ITEMS:50}
+    max-bytes: ${TIANMU_DANMAKU_BATCH_MAX_BYTES:16384}
+rocketmq:
+  name-server: ${TIANMU_ROCKETMQ_NAMESERVER:127.0.0.1:9876}
+  producer:
+    group: tianmu-producer-group
+  consumer:
+    group: tianmu-consumer-group
+server:
+  address: ${TIANMU_SERVER_ADDRESS:127.0.0.1}
+  port: ${TIANMU_SERVER_PORT:8101}
+  servlet:
+    context-path: /api
+canal:
+  server:
+    host: ${TIANMU_CANAL_HOST:127.0.0.1}
+    port: ${TIANMU_CANAL_PORT:11111}
+  destination: ${TIANMU_CANAL_DESTINATION:example}
+  username: ${TIANMU_CANAL_USER:canal}
+  password: ${TIANMU_CANAL_PASSWORD:}
+  filter: ".*\\..*"
+  client:
+    heartbeat:
+      interval: 2000
+      timeout: 3000
+    socket:
+      timeout: 6000
