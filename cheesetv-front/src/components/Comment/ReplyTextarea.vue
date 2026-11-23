@@ -2,7 +2,7 @@
   <div class="comment-textarea">
     <div class="box-normal">
       <div class="reply-box-avatar">
-        <div class="tianmu-avatar">
+        <div class="cheesetv-avatar">
           <VAvatar :img="this.user.avatar" :size="isWideWindow ? 48 : 40" />
         </div>
       </div>
@@ -161,7 +161,7 @@ export default {
   height: 48px;
 }
 
-.tianmu-avatar {
+.cheesetv-avatar {
   display: block;
   position: relative;
   background-size: cover;

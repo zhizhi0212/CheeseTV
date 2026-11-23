@@ -8,9 +8,6 @@
           <img src="@/assets/img/sky_banner.png" alt="" />
         </picture>
         <div class="header-banner__inner">
-          <!-- <div class="logo-box">
-                        <img src="@/assets/img/tianmu-white.png" alt="">
-                    </div> -->
         </div>
       </div>
       <!-- 频道栏 -->

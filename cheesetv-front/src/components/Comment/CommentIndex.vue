@@ -1,6 +1,6 @@
 <template>
   <div class="comment">
-    <div class="tianmu-comment browser-pc">
+    <div class="cheesetv-comment browser-pc">
       <div class="comment-container">
         <div class="reply-header">
           <!-- 加载 -->
@@ -193,7 +193,7 @@ export default {
   position: relative;
 }
 
-.tianmu-comment .browser-pc {
+.cheesetv-comment .browser-pc {
   background-color: #ffffff;
 }
 

@@ -160,7 +160,7 @@ export default {
       },
       loginRules: {
         account: [
-          { required: true, message: "请输入天幕账号", trigger: "blur" },
+          { required: true, message: "请输入 CheeseTV 账号", trigger: "blur" },
         ],
         password: [
           {
@@ -172,7 +172,7 @@ export default {
       },
       registerRules: {
         account: [
-          { required: true, message: "请输入天幕账号", trigger: "blur" },
+          { required: true, message: "请输入 CheeseTV 账号", trigger: "blur" },
         ],
         password: [
           {
@@ -422,7 +422,7 @@ export default {
       if (newVal === 1) {
         this.loginRules = {
           account: [
-            { required: true, message: "请输入天幕账号", trigger: "blur" },
+            { required: true, message: "请输入 CheeseTV 账号", trigger: "blur" },
           ],
           password: [
             {
@@ -435,7 +435,7 @@ export default {
       } else if (newVal === 2) {
         this.loginRules = {
           account: [
-            { required: true, message: "请输入天幕账号", trigger: "blur" },
+            { required: true, message: "请输入 CheeseTV 账号", trigger: "blur" },
           ],
           code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
         };
